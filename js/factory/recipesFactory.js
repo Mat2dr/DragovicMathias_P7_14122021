@@ -8,7 +8,8 @@ function recipeFactory(data) {
      const imgDiv = document.createElement( 'div' );
      imgDiv.classList.add("img");
      const imgEl = document.createElement( 'img' );
-     imgEl.setAttribute("src", "images/recipes/maim1.jfif");
+     const laPhoto = `images/recipes/${id}.jpg`;
+     imgEl.setAttribute("src", laPhoto);
      imgDiv.appendChild(imgEl);
 
      const descriptionDiv = document.createElement( 'div' );
