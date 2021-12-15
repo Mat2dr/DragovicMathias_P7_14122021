@@ -1,2 +1,231 @@
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */html,body,p,ol,ul,li,dl,dt,dd,blockquote,figure,fieldset,legend,textarea,pre,iframe,hr,h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}ul{list-style:none}button,input,select{margin:0}html{box-sizing:border-box}*,*::before,*::after{box-sizing:inherit}img,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
 
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+}
+header img {
+  max-width: 400px;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  background-color: #E7E7E7;
+  width: 450px;
+  border-radius: 10px;
+}
+article img {
+  height: 200px;
+  width: 450px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 10px 10px 0px 0px;
+}
+article .description {
+  display: flex;
+  flex-direction: column;
+}
+article .description header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+article .description header h2 {
+  font-size: 23px;
+}
+article .description header .time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 20px;
+}
+article .description header .time p {
+  font-weight: 600;
+  font-size: 20px;
+}
+article .description .recette {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 10px;
+  padding-bottom: 20px;
+}
+article .description .recette .liste {
+  padding-left: 20px;
+}
+article .description .recette .liste span {
+  font-weight: 600;
+}
+article .description .recette .explication {
+  max-width: 225px;
+  padding-right: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  padding: 10px;
+  font-family: "Lato", sans-serif;
+}
+
+#recherche {
+  max-width: 1600px;
+  margin: auto;
+}
+#recherche .recherche-input {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #E7E7E7;
+  border-radius: 10px;
+}
+#recherche .recherche-input input {
+  width: 100%;
+  border: 0;
+  padding: 25px;
+  background-color: #E7E7E7;
+  font-size: 18px;
+  border-radius: 10px;
+}
+#recherche .recherche-input i {
+  font-size: 40px;
+  padding: 15px;
+}
+#recherche .recherche-inputs {
+  display: flex;
+  flex-direction: row;
+  padding: 50px 0px;
+  flex-wrap: wrap;
+}
+#recherche .recherche-inputs .recherche-ingredients {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #3282F7;
+  margin: 10px 30px 10px 0px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .recherche-ingredients input {
+  background-color: #3282F7;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+}
+#recherche .recherche-inputs .recherche-ingredients input::placeholder {
+  color: white;
+}
+#recherche .recherche-inputs .recherche-ingredients i {
+  color: white;
+  padding: 0px 10px;
+}
+#recherche .recherche-inputs .recherche-Appareil {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #68D9A4;
+  margin: 10px 30px 10px 0px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .recherche-Appareil input {
+  background-color: #68D9A4;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+}
+#recherche .recherche-inputs .recherche-Appareil input::placeholder {
+  color: white;
+}
+#recherche .recherche-inputs .recherche-Appareil i {
+  color: white;
+  padding: 0px 10px;
+}
+#recherche .recherche-inputs .recherche-Ustensiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: #ED6454;
+  margin: 10px 30px 10px 0px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .recherche-Ustensiles input {
+  background-color: #ED6454;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: white;
+}
+#recherche .recherche-inputs .recherche-Ustensiles input::placeholder {
+  color: white;
+}
+#recherche .recherche-inputs .recherche-Ustensiles i {
+  color: white;
+  padding: 0px 10px;
+}
+
+#resultats {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,56 @@
+article {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey-light;
+    width: 450px;
+    border-radius: 10px;
+    img {
+        height: 200px;
+        width: 450px;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .description{
+        display: flex;
+        flex-direction: column;
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            h2 {
+                font-size: 23px;
+            }
+            .time{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 20px;
+                p {
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+            }
+        }
+        .recette {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            column-gap: 10px;
+            padding-bottom: 20px;
+            .liste {
+                padding-left: 20px;
+                span {
+                    font-weight: 600;
+                }
+            }
+            .explication {
+                max-width: 225px;
+                padding-right: 20px;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
+}
