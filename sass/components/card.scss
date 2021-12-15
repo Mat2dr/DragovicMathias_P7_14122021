@@ -2,11 +2,12 @@ article {
     display: flex;
     flex-direction: column;
     background-color: $grey-light;
-    width: 450px;
+    width: 470px;
     border-radius: 10px;
+    transition: all 0.3s ease;
     img {
         height: 200px;
-        width: 450px;
+        width: 470px;
         object-fit: cover;
         object-position: center center;
         border-radius: 10px 10px 0px 0px;
@@ -40,12 +41,16 @@ article {
             align-items: flex-start;
             column-gap: 10px;
             padding-bottom: 20px;
+            min-height: 150px;
             .liste {
                 padding-left: 20px;
+                text-overflow: ellipsis;
+                    overflow: hidden;
+                    max-height: 116px;
                 li{
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
+                    align-items: flex-start;
                 }
                 span {
                     font-weight: 600;
@@ -55,7 +60,16 @@ article {
                 max-width: 225px;
                 padding-right: 20px;
                 font-family: 'Roboto', sans-serif;
+                p {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    max-height: 116px;
+                }
             }
         }
     }
+}
+
+article:hover {
+    transform: scale(1.02);
 }
