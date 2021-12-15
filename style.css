@@ -100,6 +100,11 @@ article .description .recette {
 article .description .recette .liste {
   padding-left: 20px;
 }
+article .description .recette .liste li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 article .description .recette .liste span {
   font-weight: 600;
 }
@@ -225,7 +230,10 @@ body {
 #resultats {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */
