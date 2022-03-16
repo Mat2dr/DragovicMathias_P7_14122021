@@ -2,8 +2,6 @@
 let theRecipes;
 
 let ingredientsArray = [];
-let appliancesArray = [];
-let ustensilsArray = [];
 
 const rechercheIngredients = document.querySelector('.recherche-ingredients');
 
@@ -25,36 +23,30 @@ const fetchRecipes = async () => {
 const keywordDisplay = async () => {
     await fetchRecipes();
 
+    /*RECUPERER LES INGREDIENTS */
     theRecipes.forEach((recipe) => {
-        /* LES INGREDIENTS */
         //Recuperer les ingredients des recettes
         recipe.ingredients.forEach((lesIngredients) => {
-            ingredientsArray.push(lesIngredients.ingredient);
+            // Turn the data in LowerCase
+            let ingredientLowerCase = lesIngredients.ingredient.toLowerCase();
+            // push ingredient only if it's not inside of ingredientsArray
+            if (ingredientsArray.includes(ingredientLowerCase) === false) {
+                ingredientsArray.push(ingredientLowerCase);
+            }
         });
-        /* LES APPAREILS */
-        //Recuperer les appareils des recettes
-        appliancesArray.push(recipe.appliance);
-
-        /* LES USTENSILES */
-        //Recuperer les ustensiles des recettes
-        recipe.ustensils.forEach((lesUstensiles) => {
-            ustensilsArray.push(lesUstensiles);
-        });
+        // Sorts the ingredients in alphabetical order.
+        ingredientsArray.sort();
     });
-    // Remove duplicates from ingredientsArray into uniqueIngredientsArray
-    let uniqueIngredientsArray = [...new Set(ingredientsArray)];
-    // Remove duplicates from appliancesArray into uniqueAppliancesArray
-    let uniqueAppliancesArray = [...new Set(appliancesArray)];
-    // Remove duplicates from ustensilsArray into uniqueUstensilsArray
-    let uniqueUstensilsArray = [...new Set(ustensilsArray)];
-    /* REMOVE */
-    console.log(uniqueIngredientsArray);
-    console.log(uniqueAppliancesArray);
-    console.log(uniqueUstensilsArray);
+    /*AFFICHER LES INGREDIENTS */
+    const ingredientDiv = document.querySelector(".ingredients-keywords");
+    const ingredientUl = document.createElement( 'ul' );
+    ingredientDiv.appendChild(ingredientUl);
 
-    uniqueIngredientsArray.forEach((unIngredient) => {
-        // Faire un factory
-    })
+    ingredientsArray.forEach((ingredient) => {
+        const ingredientLi = document.createElement( 'li' );
+        ingredientLi.innerHTML = ingredient;
+        ingredientUl.appendChild(ingredientLi);
+    });
 }
 
 const recipesDisplay = async () => {
