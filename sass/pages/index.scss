@@ -1,121 +1,144 @@
 body {
-    padding: 10px;
-    font-family: 'Lato', sans-serif;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
 }
 
 #recherche {
-    max-width: 1600px;
-    margin: auto;
-    .recherche-input {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        background-color: $grey-light;
+  max-width: 1600px;
+  margin: auto;
+  .recherche-input {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: $grey-light;
+    border-radius: 10px;
+    input {
+      width: 100%;
+      border: 0;
+      padding: 25px;
+      background-color: $grey-light;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+    i {
+      font-size: 40px;
+      padding: 15px;
+    }
+  }
+  .recherche-inputs {
+    display: flex;
+    flex-direction: row;
+    padding: 50px 0px;
+    flex-wrap: wrap;
+    .recherche-ingredients {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      background-color: $blue;
+      margin: 10px 30px 10px 0px;
+      border-radius: 10px;
+      input {
+        background-color: $blue;
+        border: 0;
+        padding: 18px;
         border-radius: 10px;
-        input{
-            width: 100%;
-            border: 0;
-            padding: 25px;
-            background-color: $grey-light;
-            font-size: 18px;
-            border-radius: 10px;
+        font-size: 18px;
+        color: white;
+        &::placeholder {
+          color: white;
         }
-        i{
-            font-size: 40px;
-            padding: 15px;
-        }
+      }
+      i {
+        color: white;
+        padding: 0px 10px;
+      }
     }
-    .recherche-inputs {
+    .ingredients-keywords {
+      background-color: $blue;
+      color: white;
+      border: 0;
+      padding: 18px;
+      border-radius: 10px;
+      ul {
         display: flex;
-        flex-direction: row;
-        padding: 50px 0px;
+        justify-content: space-between;
+        flex-direction: column;
         flex-wrap: wrap;
-        .recherche-ingredients{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: center;
-            background-color: $blue;
-            margin: 10px 30px 10px 0px;
-            border-radius: 10px;
-            input{
-                background-color: $blue;
-                border: 0;
-                padding: 18px;
-                border-radius: 10px;
-                font-size: 18px;
-                color: white;
-                &::placeholder{
-                    color: white;
-                }
-            }
-            i{
-                color: white;
-                padding: 0px 10px;
-            }
+        li {
+          padding: 10px;
+          margin: 2 px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.2s ease-in-out;
+          &:hover {
+            background-color: #0366fa;
+          }
         }
-        .recherche-Appareil{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: center;
-            background-color: $green;
-            margin: 10px 30px 10px 0px;
-            border-radius: 10px;
-            input{
-                background-color: $green;
-                border: 0;
-                padding: 18px;
-                border-radius: 10px;
-                font-size: 18px;
-                color: white;
-                &::placeholder{
-                    color: white;
-                }
-            }
-            i{
-                color: white;
-                padding: 0px 10px;
-            }
-        }
-        .recherche-Ustensiles{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: center;
-            justify-content: center;
-            background-color: $red;
-            margin: 10px 30px 10px 0px;
-            border-radius: 10px;
-            input{
-                background-color: $red;
-                border: 0;
-                padding: 18px;
-                border-radius: 10px;
-                font-size: 18px;
-                color: white;
-                &::placeholder{
-                    color: white;
-                }
-            }
-            i {
-                color: white;
-                padding: 0px 10px;
-            }
-        }
+      }
     }
+    .recherche-Appareil {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      background-color: $green;
+      margin: 10px 30px 10px 0px;
+      border-radius: 10px;
+      input {
+        background-color: $green;
+        border: 0;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 18px;
+        color: white;
+        &::placeholder {
+          color: white;
+        }
+      }
+      i {
+        color: white;
+        padding: 0px 10px;
+      }
+    }
+    .recherche-Ustensiles {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      background-color: $red;
+      margin: 10px 30px 10px 0px;
+      border-radius: 10px;
+      input {
+        background-color: $red;
+        border: 0;
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 18px;
+        color: white;
+        &::placeholder {
+          color: white;
+        }
+      }
+      i {
+        color: white;
+        padding: 0px 10px;
+      }
+    }
+  }
 }
 
 #resultats {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
 }

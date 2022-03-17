@@ -190,6 +190,29 @@ body {
   color: white;
   padding: 0px 10px;
 }
+#recherche .recherche-inputs .ingredients-keywords {
+  background-color: #3282F7;
+  color: white;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .ingredients-keywords ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#recherche .recherche-inputs .ingredients-keywords ul li {
+  padding: 10px;
+  margin: 2 px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+#recherche .recherche-inputs .ingredients-keywords ul li:hover {
+  background-color: #0366fa;
+}
 #recherche .recherche-inputs .recherche-Appareil {
   display: flex;
   flex-direction: row;
