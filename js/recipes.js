@@ -4,6 +4,8 @@ let theRecipes;
 let ingredientsArray = [];
 
 const rechercheIngredients = document.querySelector('.recherche-ingredients');
+const filterIngredientsDiv = document.querySelector(".filter-show-div");
+const ingredientDiv = document.querySelector(".ingredients-keywords");
 
 
 /*--------- EVENTS ---------*/
@@ -46,7 +48,19 @@ const keywordDisplay = async () => {
         const ingredientLi = document.createElement( 'li' );
         ingredientLi.innerHTML = ingredient;
         ingredientUl.appendChild(ingredientLi);
+
+        ingredientLi.addEventListener("click", () => {
+            ingredientLi.classList.add("active-ingredient");
+        })
     });
+
+    const filterIngredients = document.querySelectorAll(".active-ingredient");
+
+    for (let i = 0; i < filterIngredients.length; i++) {
+        const ingredientTag = document.createElement( 'li' );
+        ingredientTag.innerHTML = filterIngredient[i].innerHTML;
+        filterIngredientsDiv.appendChild(ingredientTag);
+    }
 }
 
 const recipesDisplay = async () => {
@@ -60,7 +74,5 @@ const recipesDisplay = async () => {
         recipesSection.appendChild(recipeCardDOM);
     });
 }
-
-
 keywordDisplay();
 recipesDisplay();
