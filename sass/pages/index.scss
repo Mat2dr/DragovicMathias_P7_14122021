@@ -6,6 +6,23 @@ body {
 #recherche {
   max-width: 1600px;
   margin: auto;
+  .filter-show-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height:normal;
+    gap: 3px;
+
+
+    padding-top: 20px;
+    p {
+      padding: 10px;
+      background-color: #0366fa;
+      width: fit-content;
+      border-radius: 5px;
+      color: white;
+    }
+  }
   .recherche-input {
     display: flex;
     flex-direction: row;
@@ -42,6 +59,8 @@ body {
       background-color: $blue;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
+      height: fit-content;
+      position: relative;
       input {
         background-color: $blue;
         border: 0;
@@ -56,6 +75,8 @@ body {
       i {
         color: white;
         padding: 0px 10px;
+        position: absolute;
+        right: 0;
       }
     }
     .ingredients-keywords {
@@ -64,16 +85,23 @@ body {
       border: 0;
       padding: 18px;
       border-radius: 10px;
+      position: absolute;
+      &--close {
+        display: flex;
+        cursor: pointer;
+        justify-content: flex-end;
+      }
       ul {
         display: flex;
         justify-content: space-between;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
         li {
           padding: 10px;
           margin: 2 px;
           border-radius: 5px;
           cursor: pointer;
+          width: 30%;
           transition: background-color 0.2s ease-in-out;
           &:hover {
             background-color: #0366fa;
@@ -90,6 +118,7 @@ body {
       background-color: $green;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
+      height: fit-content;
       input {
         background-color: $green;
         border: 0;
@@ -115,6 +144,7 @@ body {
       background-color: $red;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
+      height: fit-content;
       input {
         background-color: $red;
         border: 0;
@@ -141,4 +171,12 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 30px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+//For js
+
+.ingredient--selected {
+  background-color: #0366fa;
 }

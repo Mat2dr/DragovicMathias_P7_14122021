@@ -137,6 +137,21 @@ body {
   max-width: 1600px;
   margin: auto;
 }
+#recherche .filter-show-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: normal;
+  gap: 3px;
+  padding-top: 20px;
+}
+#recherche .filter-show-div p {
+  padding: 10px;
+  background-color: #0366fa;
+  width: fit-content;
+  border-radius: 5px;
+  color: white;
+}
 #recherche .recherche-input {
   display: flex;
   flex-direction: row;
@@ -174,6 +189,8 @@ body {
   background-color: #3282F7;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
+  height: fit-content;
+  position: relative;
 }
 #recherche .recherche-inputs .recherche-ingredients input {
   background-color: #3282F7;
@@ -189,6 +206,8 @@ body {
 #recherche .recherche-inputs .recherche-ingredients i {
   color: white;
   padding: 0px 10px;
+  position: absolute;
+  right: 0;
 }
 #recherche .recherche-inputs .ingredients-keywords {
   background-color: #3282F7;
@@ -196,11 +215,17 @@ body {
   border: 0;
   padding: 18px;
   border-radius: 10px;
+  position: absolute;
+}
+#recherche .recherche-inputs .ingredients-keywords--close {
+  display: flex;
+  cursor: pointer;
+  justify-content: flex-end;
 }
 #recherche .recherche-inputs .ingredients-keywords ul {
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 #recherche .recherche-inputs .ingredients-keywords ul li {
@@ -208,6 +233,7 @@ body {
   margin: 2 px;
   border-radius: 5px;
   cursor: pointer;
+  width: 30%;
   transition: background-color 0.2s ease-in-out;
 }
 #recherche .recherche-inputs .ingredients-keywords ul li:hover {
@@ -222,6 +248,7 @@ body {
   background-color: #68D9A4;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
+  height: fit-content;
 }
 #recherche .recherche-inputs .recherche-Appareil input {
   background-color: #68D9A4;
@@ -247,6 +274,7 @@ body {
   background-color: #ED6454;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
+  height: fit-content;
 }
 #recherche .recherche-inputs .recherche-Ustensiles input {
   background-color: #ED6454;
@@ -271,6 +299,12 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 30px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.ingredient--selected {
+  background-color: #0366fa;
 }
 
 /*# sourceMappingURL=style.css.map */
