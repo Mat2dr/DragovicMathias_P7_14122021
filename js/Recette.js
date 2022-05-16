@@ -46,7 +46,7 @@ export default class Recette {
      timeI.classList.add("far","fa-clock");
      timeDiv.appendChild(timeI);
      const timeP = document.createElement( 'p' );
-     timeP.innerHTML = this.name +"min";
+     timeP.innerHTML = this.time +"min";
      timeDiv.appendChild(timeP);
 
      const recetteDiv = document.createElement( 'div' );

@@ -161,6 +161,7 @@ body {
   align-items: center;
   background-color: #E7E7E7;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 #recherche .recherche-input input {
   width: 100%;
