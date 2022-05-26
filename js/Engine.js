@@ -2,8 +2,10 @@ import API from "./API.js";
 import Recette from "./Recette.js";
 import Tag from "./Tag.js";
 import Searchbar from "./Searchbar.js";
+import SearchbarFilter from "./SearchbarFilter.js";
 
 const searchInput = document.querySelector('[data-search-main]');
+
 const ingredientsList = document.querySelector('.ingredients-list');
 
 try {
@@ -13,11 +15,13 @@ try {
             const recetteObj = new Recette(recette.id, recette.name, recette.servings, recette.ingredients, recette.time, recette.description, recette.appliance, recette.ustensils);
             recetteObj.recipeDisplay();
         });
-        //Recperer les ingredients
-        API.getIngredients().forEach(ingredient => {
-            const tagIngredient = new Tag(ingredient, ingredientsList);
-            tagIngredient.tagDisplay();
-        });
+
+        //create the searchBars
+        const ingredients = API.getIngredients(); 
+
+        const SearchbarFilterIngredients = new SearchbarFilter('ingredients', ingredients);
+        SearchbarFilterIngredients.SearchbarDisplay();
+
         //Recperer les ustentiles
         API.getUstensiles();
         //Recperer les Appareils

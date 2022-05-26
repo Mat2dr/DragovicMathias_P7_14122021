@@ -84,6 +84,7 @@ body {
       background-color: $blue;
       color: white;
       border: 0;
+      margin-top: 70px;
       padding: 18px;
       border-radius: 10px;
       position: absolute;
@@ -180,4 +181,8 @@ body {
 
 .ingredient--selected {
   background-color: #0366fa;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,4 +1,8 @@
 export default class Tag {
+    
+    name;
+    searchType;
+
     constructor(name, searchType) {
         this.name = name;
         this.searchType = searchType;
