@@ -226,16 +226,17 @@ body {
 }
 #recherche .recherche-inputs .ingredients-keywords ul {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  width: fit-content;
 }
 #recherche .recherche-inputs .ingredients-keywords ul li {
   padding: 10px;
   margin: 2 px;
   border-radius: 5px;
   cursor: pointer;
-  width: 30%;
+  width: fit-content;
+  min-width: 30%;
   transition: background-color 0.2s ease-in-out;
 }
 #recherche .recherche-inputs .ingredients-keywords ul li:hover {
@@ -303,6 +304,27 @@ body {
   gap: 30px;
   max-width: 1600px;
   margin: auto;
+}
+
+.tags-active {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tags-active li {
+  background-color: #cccccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  margin: 2 px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.tags-active li:hover {
+  background-color: gray;
 }
 
 .ingredient--selected {

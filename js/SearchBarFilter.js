@@ -38,14 +38,29 @@ export default class SearchbarFilter {
         tagDiv.appendChild(tagList)
         rechercheDiv.appendChild(tagDiv)
 
-        
+        //Generer la liste de tags
         this.tags.forEach(tag => {
             const tagEl = new Tag(tag, tagList);
             tagEl.tagDisplay();
         });
 
+        //Systeme pour ouvrir la liste de tags
         input.addEventListener('click', () => {
             tagDiv.classList.toggle('hidden')
+        })
+
+        //Systeme de recherche
+        input.addEventListener('input', e => {
+            const value = e.target.value.toLowerCase();
+            
+            tagList.innerHTML="";
+            this.tags.forEach(tag => {
+                if (tag.toLowerCase().includes(value)) {
+                    const tagEl = new Tag(tag, tagList);
+                    tagEl.tagDisplay();
+                }
+            });
+
         })
     }
 

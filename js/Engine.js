@@ -5,8 +5,8 @@ import Searchbar from "./Searchbar.js";
 import SearchbarFilter from "./SearchbarFilter.js";
 
 const searchInput = document.querySelector('[data-search-main]');
-
 const ingredientsList = document.querySelector('.ingredients-list');
+let activeTag = [];
 
 try {
     await API.fetchData();

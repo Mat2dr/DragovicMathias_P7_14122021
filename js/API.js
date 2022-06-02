@@ -28,7 +28,7 @@ export default class API {
         API.recettes.forEach(recette => {
             //Recuperer les ingredients des recettes 
             recette.ingredients.forEach(leIngredient => {
-                ingredientsArrayBase.push(leIngredient.ingredient)
+                ingredientsArrayBase.push(leIngredient.ingredient.toLowerCase())
             });
             //Remove duplicate 
             API.ingredients = [...new Set(ingredientsArrayBase)];
