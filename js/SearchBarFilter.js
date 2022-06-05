@@ -40,7 +40,7 @@ export default class SearchbarFilter {
 
         //Generer la liste de tags
         this.tags.forEach(tag => {
-            const tagEl = new Tag(tag, tagList);
+            const tagEl = new Tag(tag, tagList, this.name);
             tagEl.tagDisplay();
         });
 
@@ -56,7 +56,7 @@ export default class SearchbarFilter {
             tagList.innerHTML="";
             this.tags.forEach(tag => {
                 if (tag.toLowerCase().includes(value)) {
-                    const tagEl = new Tag(tag, tagList);
+                    const tagEl = new Tag(tag, tagList, this.name);
                     tagEl.tagDisplay();
                 }
             });

@@ -184,7 +184,9 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   li {
-    background-color: rgb(204, 204, 204);
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 5px 10px;
     border-radius: 5px;
     color: white;
@@ -193,14 +195,14 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    &:hover {
-      background-color: gray;
-    }
+  }
+  .ingredients-active {
+    background-color: #3282F7;
   }
 }
 
 //For js
-.ingredient--selected {
+.ingredients--selected {
   background-color: #0366fa;
 }
 
