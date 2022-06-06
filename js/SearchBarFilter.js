@@ -23,10 +23,16 @@ export default class SearchbarFilter {
         input.setAttribute("placeholder", this.name);
 
         const iconDown = document.createElement( 'i' );
-        iconDown.classList.add('fas', 'fa-chevron-down')
+        iconDown.classList.add('fas', 'fa-chevron-down');
 
-        searchDiv.appendChild(input);
-        searchDiv.appendChild(iconDown);
+        const inputDiv = document.createElement( 'div' );
+        inputDiv.classList.add('input-div');
+
+        inputDiv.appendChild(input);
+        inputDiv.appendChild(iconDown);
+
+        searchDiv.appendChild(inputDiv);
+
         rechercheDiv.appendChild(searchDiv);
         //Create list
         const tagDiv = document.createElement( 'div' );
@@ -35,8 +41,13 @@ export default class SearchbarFilter {
         const tagList = document.createElement( 'ul' );
         tagList.classList.add(this.name+"-list");
 
-        tagDiv.appendChild(tagList)
-        rechercheDiv.appendChild(tagDiv)
+        tagDiv.appendChild(tagList);
+        searchDiv.appendChild(tagDiv);
+
+        rechercheDiv.appendChild(searchDiv);
+
+
+
 
         //Generer la liste de tags
         this.tags.forEach(tag => {
@@ -46,18 +57,27 @@ export default class SearchbarFilter {
 
         //Systeme pour ouvrir la liste de tags
         input.addEventListener('click', () => {
-            tagDiv.classList.toggle('hidden')
+            tagDiv.classList.remove('hidden')
         })
+        document.addEventListener("click", function(event) {
+              // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
+              if (!event.target.closest("search-"+this.name) || !event.target.closest(this.name+"-keywords")) {
+                console.log("heyyy");
+              }
+            });
 
         //Systeme de recherche
         input.addEventListener('input', e => {
             const value = e.target.value.toLowerCase();
+
+            const tagEls = tagList.querySelectorAll("li")
+            console.log(tagEls);
             
-            tagList.innerHTML="";
-            this.tags.forEach(tag => {
-                if (tag.toLowerCase().includes(value)) {
-                    const tagEl = new Tag(tag, tagList, this.name);
-                    tagEl.tagDisplay();
+            tagEls.forEach(tag => {
+                if (!tag.innerHTML.includes(value)) {
+                    tag.classList.add('hidden')
+                } else {
+                    tag.classList.remove('hidden')
                 }
             });
 

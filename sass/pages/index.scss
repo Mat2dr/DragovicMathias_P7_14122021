@@ -53,15 +53,21 @@ body {
     flex-wrap: wrap;
     .recherche-ingredients {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: nowrap;
-      align-items: center;
       justify-content: center;
       background-color: $blue;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
       position: relative;
+      max-width: 60%;
+      .input-div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
       input {
         background-color: $blue;
         border: 0;
@@ -84,15 +90,8 @@ body {
       background-color: $blue;
       color: white;
       border: 0;
-      margin-top: 70px;
       padding: 18px;
       border-radius: 10px;
-      position: absolute;
-      &--close {
-        display: flex;
-        cursor: pointer;
-        justify-content: flex-end;
-      }
       ul {
         display: flex;
         flex-direction: row;
