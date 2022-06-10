@@ -62,7 +62,7 @@ export default class SearchbarFilter {
         document.addEventListener("click", function(event) {
               // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
               if (!event.target.closest("search-"+this.name) || !event.target.closest(this.name+"-keywords")) {
-                console.log("heyyy");
+               // console.log("heyyy");
               }
             });
 

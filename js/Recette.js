@@ -24,6 +24,7 @@ export default class Recette {
       const recipesSection = document.querySelector("#resultats");
         //Setup element
      const article = document.createElement( 'article' );
+     article.classList.add("article-recette");
 
      const imgDiv = document.createElement( 'div' );
      imgDiv.classList.add("img");
