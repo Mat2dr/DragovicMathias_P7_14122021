@@ -15,6 +15,8 @@ export default class SearchbarFilter {
     }
 
     SearchbarDisplay() {
+        //Define for the close and open tag modal
+        const divRecherche = ".recherche-"+this.name;
         //Create Input
         const searchDiv = document.createElement( 'div' );
         searchDiv.classList.add("recherche-"+this.name);
@@ -61,8 +63,8 @@ export default class SearchbarFilter {
         })
         document.addEventListener("click", function(event) {
               // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
-              if (!event.target.closest("search-"+this.name) || !event.target.closest(this.name+"-keywords")) {
-               // console.log("heyyy");
+              if ( !event.target.closest(divRecherche) ) {
+                tagDiv.classList.add('hidden')
               }
             });
 
@@ -71,7 +73,6 @@ export default class SearchbarFilter {
             const value = e.target.value.toLowerCase();
 
             const tagEls = tagList.querySelectorAll("li")
-            console.log(tagEls);
             
             tagEls.forEach(tag => {
                 if (!tag.innerHTML.includes(value)) {

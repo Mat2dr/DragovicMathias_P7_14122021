@@ -2,6 +2,7 @@ import API from "./API.js";
 import Recette from "./Recette.js";
 
 const resultatsDiv = document.querySelector('#resultats');
+let activeRecettes = [];
 
 export default class Searchbar {
 
@@ -14,18 +15,20 @@ export default class Searchbar {
                 resultatsDiv.innerHTML="";
                 API.recettes.forEach(recette => {
                     if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
+                        activeRecettes.push(recette);
                         const recetteObj = new Recette(recette.id, recette.name, recette.servings, recette.ingredients, recette.time, recette.description, recette.appliance, recette.ustensils);
                         recetteObj.recipeDisplay();
                     }
                 });
-                const articleRecette = document.querySelectorAll('.article-recette')
-                console.log(articleRecette);
-                if (articleRecette.length === 0) {
+                //If no recette
+                if (activeRecettes.length === 0) {
+                    activeRecettes = "";
                     resultatsDiv.innerHTML='<p>Aucune recette ne correspond à votre critère… vous pouvez chercher "tarte aux pommes", "poisson", etc</p>';
                 }
             } else {
                 resultatsDiv.innerHTML="";
                 API.recettes.forEach(recette => {
+                    activeRecettes.push(recette);
                     const recetteObj = new Recette(recette.id, recette.name, recette.servings, recette.ingredients, recette.time, recette.description, recette.appliance, recette.ustensils);
                     recetteObj.recipeDisplay();
                 });

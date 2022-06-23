@@ -111,16 +111,23 @@ body {
         }
       }
     }
-    .recherche-Appareil {
+    .recherche-appareil {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: nowrap;
-      align-items: center;
       justify-content: center;
       background-color: $green;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
+      position: relative;
+      max-width: 60%;
+      .input-div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
       input {
         background-color: $green;
         border: 0;
@@ -135,18 +142,52 @@ body {
       i {
         color: white;
         padding: 0px 10px;
+        position: absolute;
+        right: 0;
       }
     }
-    .recherche-Ustensiles {
+    .appareil-keywords {
+      background-color: $green;
+      color: white;
+      border: 0;
+      padding: 18px;
+      border-radius: 10px;
+      ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: fit-content;
+        li {
+          padding: 10px;
+          margin: 2 px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: fit-content;
+          min-width: 30%;
+          transition: background-color 0.2s ease-in-out;
+          &:hover {
+            background-color: #4b9a75;
+          }
+        }
+      }
+    }
+    .recherche-ustensiles {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       flex-wrap: nowrap;
-      align-items: center;
       justify-content: center;
       background-color: $red;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
+      position: relative;
+      max-width: 60%;
+      .input-div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
       input {
         background-color: $red;
         border: 0;
@@ -161,6 +202,33 @@ body {
       i {
         color: white;
         padding: 0px 10px;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .ustensiles-keywords {
+      background-color: $red;
+      color: white;
+      border: 0;
+      padding: 18px;
+      border-radius: 10px;
+      ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: fit-content;
+        li {
+          padding: 10px;
+          margin: 2 px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: fit-content;
+          min-width: 30%;
+          transition: background-color 0.2s ease-in-out;
+          &:hover {
+            background-color: #bf4e42;
+          }
+        }
       }
     }
   }
@@ -182,6 +250,24 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+  .ingredientsUL {
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  }
+  .ustensilesUL {
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  }
+  .appareilUL {
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  }
   li {
     display: flex;
     align-items: center;
@@ -196,13 +282,25 @@ body {
     transition: background-color 0.2s ease-in-out;
   }
   .ingredients-active {
-    background-color: #3282F7;
+    background-color: $blue;
+  }
+  .ustensiles-active {
+    background-color: $red;
+  }
+  .appareil-active {
+    background-color: $green;
   }
 }
 
 //For js
 .ingredients--selected {
   background-color: #0366fa;
+}
+.ustensiles--selected {
+  background-color: #bf4e42;
+}
+.appareil--selected {
+  background-color: #4b9a75;
 }
 
 .hidden {

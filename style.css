@@ -241,18 +241,25 @@ body {
 #recherche .recherche-inputs .ingredients-keywords ul li:hover {
   background-color: #0366fa;
 }
-#recherche .recherche-inputs .recherche-Appareil {
+#recherche .recherche-inputs .recherche-appareil {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
   background-color: #68D9A4;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
   height: fit-content;
+  position: relative;
+  max-width: 60%;
 }
-#recherche .recherche-inputs .recherche-Appareil input {
+#recherche .recherche-inputs .recherche-appareil .input-div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#recherche .recherche-inputs .recherche-appareil input {
   background-color: #68D9A4;
   border: 0;
   padding: 18px;
@@ -260,25 +267,59 @@ body {
   font-size: 18px;
   color: white;
 }
-#recherche .recherche-inputs .recherche-Appareil input::placeholder {
+#recherche .recherche-inputs .recherche-appareil input::placeholder {
   color: white;
 }
-#recherche .recherche-inputs .recherche-Appareil i {
+#recherche .recherche-inputs .recherche-appareil i {
   color: white;
   padding: 0px 10px;
+  position: absolute;
+  right: 0;
 }
-#recherche .recherche-inputs .recherche-Ustensiles {
+#recherche .recherche-inputs .appareil-keywords {
+  background-color: #68D9A4;
+  color: white;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .appareil-keywords ul {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+#recherche .recherche-inputs .appareil-keywords ul li {
+  padding: 10px;
+  margin: 2 px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 30%;
+  transition: background-color 0.2s ease-in-out;
+}
+#recherche .recherche-inputs .appareil-keywords ul li:hover {
+  background-color: #4b9a75;
+}
+#recherche .recherche-inputs .recherche-ustensiles {
+  display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
   background-color: #ED6454;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
   height: fit-content;
+  position: relative;
+  max-width: 60%;
 }
-#recherche .recherche-inputs .recherche-Ustensiles input {
+#recherche .recherche-inputs .recherche-ustensiles .input-div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#recherche .recherche-inputs .recherche-ustensiles input {
   background-color: #ED6454;
   border: 0;
   padding: 18px;
@@ -286,12 +327,39 @@ body {
   font-size: 18px;
   color: white;
 }
-#recherche .recherche-inputs .recherche-Ustensiles input::placeholder {
+#recherche .recherche-inputs .recherche-ustensiles input::placeholder {
   color: white;
 }
-#recherche .recherche-inputs .recherche-Ustensiles i {
+#recherche .recherche-inputs .recherche-ustensiles i {
   color: white;
   padding: 0px 10px;
+  position: absolute;
+  right: 0;
+}
+#recherche .recherche-inputs .ustensiles-keywords {
+  background-color: #ED6454;
+  color: white;
+  border: 0;
+  padding: 18px;
+  border-radius: 10px;
+}
+#recherche .recherche-inputs .ustensiles-keywords ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+#recherche .recherche-inputs .ustensiles-keywords ul li {
+  padding: 10px;
+  margin: 2 px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 30%;
+  transition: background-color 0.2s ease-in-out;
+}
+#recherche .recherche-inputs .ustensiles-keywords ul li:hover {
+  background-color: #bf4e42;
 }
 
 #resultats {
@@ -306,6 +374,24 @@ body {
 }
 
 .tags-active {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tags-active .ingredientsUL {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tags-active .ustensilesUL {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tags-active .appareilUL {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -327,9 +413,23 @@ body {
 .tags-active .ingredients-active {
   background-color: #3282F7;
 }
+.tags-active .ustensiles-active {
+  background-color: #ED6454;
+}
+.tags-active .appareil-active {
+  background-color: #68D9A4;
+}
 
 .ingredients--selected {
   background-color: #0366fa;
+}
+
+.ustensiles--selected {
+  background-color: #bf4e42;
+}
+
+.appareil--selected {
+  background-color: #4b9a75;
 }
 
 .hidden {
