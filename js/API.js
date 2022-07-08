@@ -10,7 +10,7 @@ export default class API {
         await fetch('./API/recipes.json')
         .then( function  (resp) {
             return resp.json();
-            throw "Il n'y a pas de recettes pour aujourd'hui !"
+            throw "Il n'y a pas de recettes !"
         })
         .then( function (data) {
             API.recettes = data.recipes;
@@ -43,7 +43,7 @@ export default class API {
         API.recettes.forEach(recette => {
             //Recuperer les ustensiles des recettes 
             recette.ustensils.forEach(lUstensile => {
-                ustensilesArrayBase.push(lUstensile)
+                ustensilesArrayBase.push(lUstensile.toLowerCase())
             });
             //Remove duplicate 
             API.ustensiles = [...new Set(ustensilesArrayBase)];
@@ -57,7 +57,7 @@ export default class API {
 
         API.recettes.forEach(recette => {
             //Recuperer les appareils des recettes 
-            appareilsArrayBase.push(recette.appliance)
+            appareilsArrayBase.push(recette.appliance.toLowerCase())
             //Remove duplicate 
             API.appareils = [...new Set(appareilsArrayBase)];
         })

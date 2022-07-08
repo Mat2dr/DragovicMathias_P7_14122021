@@ -3,11 +3,9 @@ import Recette from "./Recette.js";
 import Tag from "./Tag.js";
 import Searchbar from "./Searchbar.js";
 import SearchbarFilter from "./SearchbarFilter.js";
+import Filter from "./Filter.js";
 
 const searchInput = document.querySelector('[data-search-main]');
-const ingredientsList = document.querySelector('.ingredients-list');
-let activeTag = [];
-let activeRecettes = [];
 
 try {
     await API.fetchData();
@@ -17,22 +15,8 @@ try {
             recetteObj.recipeDisplay();
         });
 
-        //create the searchBars
-        const ingredients = API.getIngredients(); 
-        //Recperer les ustentiles
-        const ustensils = API.getUstensiles();
-        //Recperer les Appareils
-        const appliance = API.getAppareils();
-        
-
-        const SearchbarFilterIngredients = new SearchbarFilter('ingredients', ingredients);
-        SearchbarFilterIngredients.SearchbarDisplay();
-
-        const SearchbarFilterUstensiles = new SearchbarFilter('ustensiles', ustensils);
-        SearchbarFilterUstensiles.SearchbarDisplay();
-
-        const SearchbarFilterAppareils = new SearchbarFilter('appareil', appliance);
-        SearchbarFilterAppareils.SearchbarDisplay();
+        const filterLunch = new Filter();
+        filterLunch.lunch();
 
         Searchbar.recherche(searchInput);
 

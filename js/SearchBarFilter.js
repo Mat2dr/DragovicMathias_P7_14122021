@@ -62,7 +62,7 @@ export default class SearchbarFilter {
             tagDiv.classList.remove('hidden')
         })
         document.addEventListener("click", function(event) {
-              // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
+              // If user clicks outside the modal window
               if ( !event.target.closest(divRecherche) ) {
                 tagDiv.classList.add('hidden')
               }

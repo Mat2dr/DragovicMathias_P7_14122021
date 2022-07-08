@@ -1,11 +1,13 @@
 import API from "./API.js";
 import SearchbarFilter from "./SearchBarFilter.js";
 import Searchbar from "./SearchBarFilter.js";
+import Filter from "./Filter.js";
 
 let ingredientsActiveTags = [];
 let ustensilesActiveTags = [];
 let appareilActiveTags = [];
 
+const rechercheDiv = document.querySelector('.recherche-inputs');
 const activeTagDiv = document.querySelector('.tags-active');
 
 export default class Tag {
@@ -33,11 +35,15 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     ingredientsActiveTags.push(this.name);
                     this.ingredentsActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                    filter.filter();
                     console.log(ingredientsActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ingredientsActiveTags = ingredientsActiveTags.filter(e => e !== this.name);
                     this.ingredentsActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                    filter.filter();
                     console.log(ingredientsActiveTags);
                 }
             }
@@ -46,11 +52,15 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     ustensilesActiveTags.push(this.name);
                     this.ustensilesActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags ,appareilActiveTags);
+                    filter.filter();
                     console.log(ustensilesActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ustensilesActiveTags = ustensilesActiveTags.filter(e => e !== this.name);
                     this.ustensilesActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                    filter.filter();
                     console.log(ustensilesActiveTags);
                 }
             }
@@ -59,11 +69,15 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     appareilActiveTags.push(this.name);
                     this.appareilActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                    filter.filter();
                     console.log(appareilActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     appareilActiveTags = appareilActiveTags.filter(e => e !== this.name);
                     this.appareilActive();
+                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                    filter.filter();
                     console.log(appareilActiveTags);
                 }
             }
@@ -88,6 +102,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 ingredientsActiveTags = ingredientsActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
+                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                filter.filter();
 
                 const list = document.querySelector(".ingredients-list");
                 const listEls = list.querySelectorAll("li");
@@ -120,6 +136,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 ustensilesActiveTags = ustensilesActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
+                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                filter.filter();
 
                 const list = document.querySelector(".ustensiles-list");
                 const listEls = list.querySelectorAll("li");
@@ -152,6 +170,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 appareilActiveTags = appareilActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
+                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                filter.filter();
 
                 const list = document.querySelector(".appareil-list");
                 const listEls = list.querySelectorAll("li");
