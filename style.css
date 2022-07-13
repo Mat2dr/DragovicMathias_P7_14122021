@@ -218,6 +218,10 @@ body {
 }
 #recherche .recherche-inputs .ingredients-keywords {
   background-color: #3282F7;
+  position: absolute;
+  top: 65px;
+  width: 645px;
+  z-index: 100;
   color: white;
   border: 0;
   padding: 18px;

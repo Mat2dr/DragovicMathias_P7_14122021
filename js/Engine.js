@@ -1,7 +1,6 @@
 import API from "./API.js";
 import Recette from "./Recette.js";
 import Tag from "./Tag.js";
-import Searchbar from "./Searchbar.js";
 import SearchbarFilter from "./SearchbarFilter.js";
 import Filter from "./Filter.js";
 
@@ -17,8 +16,9 @@ try {
 
         const filterLunch = new Filter();
         filterLunch.lunch();
+        filterLunch.searchMain(searchInput);
 
-        Searchbar.recherche(searchInput);
+        //Searchbar.recherche(searchInput);
 
 } catch (error) {
     console.log(error)

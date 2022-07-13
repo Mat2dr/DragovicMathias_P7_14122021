@@ -37,14 +37,12 @@ export default class Tag {
                     this.ingredentsActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                     filter.filter();
-                    console.log(ingredientsActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ingredientsActiveTags = ingredientsActiveTags.filter(e => e !== this.name);
                     this.ingredentsActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                     filter.filter();
-                    console.log(ingredientsActiveTags);
                 }
             }
             else if (this.genre === 'ustensiles') {
@@ -54,14 +52,12 @@ export default class Tag {
                     this.ustensilesActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags ,appareilActiveTags);
                     filter.filter();
-                    console.log(ustensilesActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ustensilesActiveTags = ustensilesActiveTags.filter(e => e !== this.name);
                     this.ustensilesActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                     filter.filter();
-                    console.log(ustensilesActiveTags);
                 }
             }
             else if (this.genre === 'appareil') {
@@ -71,14 +67,12 @@ export default class Tag {
                     this.appareilActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                     filter.filter();
-                    console.log(appareilActiveTags);
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     appareilActiveTags = appareilActiveTags.filter(e => e !== this.name);
                     this.appareilActive();
                     const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                     filter.filter();
-                    console.log(appareilActiveTags);
                 }
             }
         })

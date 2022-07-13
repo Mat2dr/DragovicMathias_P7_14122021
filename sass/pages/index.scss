@@ -88,6 +88,10 @@ body {
     }
     .ingredients-keywords {
       background-color: $blue;
+      position: absolute;
+      top: 65px;
+      width: 645px;
+      z-index: 100;
       color: white;
       border: 0;
       padding: 18px;
