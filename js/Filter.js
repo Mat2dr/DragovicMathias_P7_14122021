@@ -19,41 +19,47 @@ export default class Filter {
     ingredientsActiveTags = [];
     ustensilesActiveTags = [];
     appareilActiveTags = [];
+    searchBar;
 
-    constructor(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags) {
+    constructor(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags, searchBar) {
         this.ingredientsActiveTags = ingredientsActiveTags;
         this.ustensilesActiveTags = ustensilesActiveTags;
         this.appareilActiveTags = appareilActiveTags;
+        this.searchBar = searchBar;
+
+        this.searchMain();
     }
 
-    lunch() {
-        //create the searchBars
-        const ingredients = API.getIngredients(); 
-        //Recperer les ustentiles
-        const ustensils = API.getUstensiles();
-        //Recperer les Appareils
-        const appliance = API.getAppareils();
-        
+    updateFilter(newIngredientsActiveTags, newUstensilesActiveTags, newAppareilActiveTags) {
+        this.ingredientsActiveTags = newIngredientsActiveTags;
+        this.ustensilesActiveTags = newUstensilesActiveTags;
+        this.appareilActiveTags = newAppareilActiveTags;
+    }
+    updateTags(ingredientTags) {
+        this.ingredientTags = ingredientTags;
 
-        const SearchbarFilterIngredients = new SearchbarFilter('ingredients', ingredients);
-        SearchbarFilterIngredients.SearchbarDisplay();
-
-        const SearchbarFilterUstensiles = new SearchbarFilter('ustensiles', ustensils);
-        SearchbarFilterUstensiles.SearchbarDisplay();
-
-        const SearchbarFilterAppareils = new SearchbarFilter('appareil', appliance);
-        SearchbarFilterAppareils.SearchbarDisplay();
+        console.log(this.ingredientTags)
     }
 
     filter() {
         //reset
         recetteFiltered = [];
+        console.log(this.ingredientsActiveTags);
 
         //check each recette
         API.recettes.forEach(recette => {
             if (!!value) {
+                /* if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
+                    if (this.searchFilter(recette)) {
+                        if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
+                            recetteFiltered.push(recette);
+                        }
+                    }
+                } else {
+                    recetteFiltered.push(recette);
+                } */
                 //Si il y a une valeur dans la recherche principal
-                if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
+                 if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
                     //Si il y a des tags active
                     if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
                         if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
@@ -62,7 +68,7 @@ export default class Filter {
                     } else {
                         recetteFiltered.push(recette);
                     }
-                }
+                } 
             } else {
                 //Si il n'y a pas de valeur dans la recherche principal
                 if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
@@ -74,7 +80,7 @@ export default class Filter {
             recetteFiltered = [...new Set(recetteFiltered)];
         });
 
-        if (recetteFiltered.length) {
+         if (recetteFiltered.length) {
             resultatsDiv.innerHTML = "";
 
             recetteFiltered.forEach(recette => {
@@ -84,35 +90,34 @@ export default class Filter {
 
              rechercheDiv.innerHTML='';
 
-            this.getIngredients();
+             this.getIngredients();
             this.getUstensiles();
             this.getAppareils();
 
-            const SearchbarFilteredIngredients = new SearchbarFilter('ingredients', ingredientsRecetteFilter);
+            const SearchbarFilteredIngredients = new SearchbarFilter('ingredients', ingredientsRecetteFilter, this);
             SearchbarFilteredIngredients.SearchbarDisplay();
 
-            const SearchbarFilteredUstensiles = new SearchbarFilter('ustensiles', ustensilesRecetteFilter);
+            const SearchbarFilteredUstensiles = new SearchbarFilter('ustensiles', ustensilesRecetteFilter, this);
             SearchbarFilteredUstensiles.SearchbarDisplay();
 
-            const SearchbarFilteredAppareils = new SearchbarFilter('appareil', appareilRecetteFilter);
-            SearchbarFilteredAppareils.SearchbarDisplay();
+            const SearchbarFilteredAppareils = new SearchbarFilter('appareil', appareilRecetteFilter, this);
+            SearchbarFilteredAppareils.SearchbarDisplay(); 
         } else {
             resultatsDiv.innerHTML = "";
             resultatsDiv.innerHTML='<p>Aucune recette ne correspond à votre critère… vous pouvez chercher "tarte aux pommes", "poisson", etc</p>';
-        }
+        } 
     }
 
-    searchMain(searchBar) {
-        searchBar.addEventListener('input', e => {
-            value = "";
+    searchMain() {
+        this.searchBar.addEventListener('input', e => {
             value = e.target.value.toLowerCase();
+            console.log(value);
 
             //Commence la main recherche
             if (value.length > 2) {
                 this.filter();
             } else if (value.length < 3) {
                 value = " ";
-
                 this.filter();
             }
         })
@@ -120,6 +125,15 @@ export default class Filter {
 
 
     // Utils
+    searchFilter(recette) {
+        if (value="") {
+            return true;
+        }
+        if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
+            return true;
+        }
+        return false;
+    }
 
     ingredientsFilter(recette) {
         let ingredientArray = [];

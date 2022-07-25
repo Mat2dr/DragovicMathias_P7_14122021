@@ -8,10 +8,12 @@ export default class SearchbarFilter {
 
     name;
     tags;
+    filter;
 
-    constructor(name, tags) {
+    constructor(name, tags, filter) {
         this.name = name;
         this.tags = tags;
+        this.filter = filter;
     }
 
     SearchbarDisplay() {
@@ -48,12 +50,9 @@ export default class SearchbarFilter {
 
         rechercheDiv.appendChild(searchDiv);
 
-
-
-
         //Generer la liste de tags
         this.tags.forEach(tag => {
-            const tagEl = new Tag(tag, tagList, this.name);
+            const tagEl = new Tag(tag, tagList, this.name, this.filter);
             tagEl.tagDisplay();
         });
 
@@ -83,6 +82,10 @@ export default class SearchbarFilter {
             });
 
         })
+    }
+
+    updateTagsList() {
+        
     }
 
 

@@ -15,11 +15,13 @@ export default class Tag {
     name;
     searchType;
     genre;
+    filter;
 
-    constructor(name, searchType, genre) {
+    constructor(name, searchType, genre, filter) {
         this.name = name;
         this.searchType = searchType;
         this.genre = genre;
+        this.filter = filter;
     }
 
     tagDisplay() {
@@ -35,14 +37,10 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     ingredientsActiveTags.push(this.name);
                     this.ingredentsActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                    filter.filter();
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ingredientsActiveTags = ingredientsActiveTags.filter(e => e !== this.name);
                     this.ingredentsActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                    filter.filter();
                 }
             }
             else if (this.genre === 'ustensiles') {
@@ -50,14 +48,10 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     ustensilesActiveTags.push(this.name);
                     this.ustensilesActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags ,appareilActiveTags);
-                    filter.filter();
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     ustensilesActiveTags = ustensilesActiveTags.filter(e => e !== this.name);
                     this.ustensilesActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                    filter.filter();
                 }
             }
             else if (this.genre === 'appareil') {
@@ -65,16 +59,14 @@ export default class Tag {
                     tag.classList.add(this.genre+'--selected');
                     appareilActiveTags.push(this.name);
                     this.appareilActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                    filter.filter();
                 } else {
                     tag.classList.remove(this.genre+'--selected');
                     appareilActiveTags = appareilActiveTags.filter(e => e !== this.name);
                     this.appareilActive();
-                    const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                    filter.filter();
                 }
             }
+            this.filter.updateFilter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+            this.filter.filter();
         })
     }
 
@@ -96,8 +88,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 ingredientsActiveTags = ingredientsActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
-                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                filter.filter();
+                this.filter.updateFilter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                this.filter.filter();
 
                 const list = document.querySelector(".ingredients-list");
                 const listEls = list.querySelectorAll("li");
@@ -130,8 +122,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 ustensilesActiveTags = ustensilesActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
-                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                filter.filter();
+                this.filter.updateFilter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                this.filter.filter();
 
                 const list = document.querySelector(".ustensiles-list");
                 const listEls = list.querySelectorAll("li");
@@ -164,8 +156,8 @@ export default class Tag {
              activedtag.addEventListener('click', () => {
                 appareilActiveTags = appareilActiveTags.filter(e => e !== activeTag);
                 activedtag.remove();
-                const filter = new Filter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
-                filter.filter();
+                this.filter.updateFilter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
+                this.filter.filter();
 
                 const list = document.querySelector(".appareil-list");
                 const listEls = list.querySelectorAll("li");
