@@ -1,6 +1,5 @@
 import API from "./API.js";
 import Recette from "./Recette.js";
-import Tag from "./Tag.js";
 import SearchbarFilter from "./SearchbarFilter.js";
 import Filter from "./Filter.js";
 
@@ -29,11 +28,11 @@ try {
         const SearchbarFilterIngredients = new SearchbarFilter('ingredients', ingredients, filter);
         SearchbarFilterIngredients.SearchbarDisplay();
 
+        const SearchbarFilterAppareils = new SearchbarFilter('appareils', appliance, filter);
+        SearchbarFilterAppareils.SearchbarDisplay(); 
+
         const SearchbarFilterUstensiles = new SearchbarFilter('ustensiles', ustensils, filter);
         SearchbarFilterUstensiles.SearchbarDisplay();
-
-        const SearchbarFilterAppareils = new SearchbarFilter('appareil', appliance, filter);
-        SearchbarFilterAppareils.SearchbarDisplay(); 
 } catch (error) {
     console.log(error)
 }

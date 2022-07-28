@@ -29,11 +29,16 @@ export default class SearchbarFilter {
         const iconDown = document.createElement( 'i' );
         iconDown.classList.add('fas', 'fa-chevron-down');
 
+        const iconUp = document.createElement( 'i' );
+        iconUp.classList.add('fas', 'fa-chevron-up', 'hidden');
+
+
         const inputDiv = document.createElement( 'div' );
         inputDiv.classList.add('input-div');
 
         inputDiv.appendChild(input);
         inputDiv.appendChild(iconDown);
+        inputDiv.appendChild(iconUp);
 
         searchDiv.appendChild(inputDiv);
 
@@ -42,10 +47,14 @@ export default class SearchbarFilter {
         const tagDiv = document.createElement( 'div' );
         tagDiv.classList.add(this.name+"-keywords");
         tagDiv.classList.add("hidden");
+        const messageEmpty = document.createElement( 'div' );
+        messageEmpty.innerHTML = "Mince, impossible de trouver dans notre liste d'"+this.name;
+        messageEmpty.classList.add('hidden');
         const tagList = document.createElement( 'ul' );
         tagList.classList.add(this.name+"-list");
 
         tagDiv.appendChild(tagList);
+        tagDiv.appendChild(messageEmpty);
         searchDiv.appendChild(tagDiv);
 
         rechercheDiv.appendChild(searchDiv);
@@ -58,36 +67,46 @@ export default class SearchbarFilter {
 
         //Systeme pour ouvrir la liste de tags
         input.addEventListener('click', () => {
-            tagDiv.classList.remove('hidden')
+            if(tagDiv.classList.contains('hidden')) {
+                tagDiv.classList.remove('hidden');
+                iconUp.classList.remove('hidden');
+                iconDown.classList.add('hidden');
+                searchDiv.style.width = "645px"; 
+                input.setAttribute("placeholder", 'Rechercher des '+this.name);
+            } else if(!tagDiv.classList.contains('hidden')) {
+                tagDiv.classList.add('hidden');
+                iconUp.classList.add('hidden');
+                iconDown.classList.remove('hidden');
+                searchDiv.style.removeProperty("width");
+                input.setAttribute("placeholder", this.name);
+            }
         })
-        document.addEventListener("click", function(event) {
-              // If user clicks outside the modal window
-              if ( !event.target.closest(divRecherche) ) {
-                tagDiv.classList.add('hidden')
-              }
-            });
-
         //Systeme de recherche
         input.addEventListener('input', e => {
             const value = e.target.value.toLowerCase();
+            const newTagsList = [];
 
-            const tagEls = tagList.querySelectorAll("li")
-            
-            tagEls.forEach(tag => {
-                if (!tag.innerHTML.includes(value)) {
-                    tag.classList.add('hidden')
-                } else {
-                    tag.classList.remove('hidden')
-                }
+            //filter if match recherche
+            this.tags.forEach(tag => {
+                if (tag.includes(value)) {
+                    newTagsList.push(tag);
+                } 
             });
+            //newTagsList = [...new Set(newTagsList)];
+
+            //affiche la nouvelle list
+            if (newTagsList.length) {
+                messageEmpty.classList.add('hidden');
+                tagList.innerHTML="";
+                newTagsList.forEach(tag => {
+                    const tagEl = new Tag(tag, tagList, this.name, this.filter);
+                    tagEl.tagDisplay();
+                });
+            } else if (newTagsList.length === 0) {
+                tagList.innerHTML="";
+                messageEmpty.classList.remove('hidden');
+            }
 
         })
     }
-
-    updateTagsList() {
-        
-    }
-
-
-    
 }

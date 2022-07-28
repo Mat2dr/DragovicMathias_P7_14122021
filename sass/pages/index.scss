@@ -56,12 +56,11 @@ body {
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
-      background-color: $blue;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
       position: relative;
-      max-width: 60%;
+      background-color: $blue;
       .input-div {
         display: flex;
         flex-direction: column;
@@ -89,7 +88,7 @@ body {
     .ingredients-keywords {
       background-color: $blue;
       position: absolute;
-      top: 65px;
+      top: 40px;
       width: 645px;
       z-index: 100;
       color: white;
@@ -115,17 +114,16 @@ body {
         }
       }
     }
-    .recherche-appareil {
+    .recherche-appareils {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
-      background-color: $green;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
       position: relative;
-      max-width: 60%;
+      background-color: $green;
       .input-div {
         display: flex;
         flex-direction: column;
@@ -150,8 +148,12 @@ body {
         right: 0;
       }
     }
-    .appareil-keywords {
+    .appareils-keywords {
       background-color: $green;
+      position: absolute;
+      top: 40px;
+      width: 645px;
+      z-index: 100;
       color: white;
       border: 0;
       padding: 18px;
@@ -180,12 +182,11 @@ body {
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
-      background-color: $red;
       margin: 10px 30px 10px 0px;
       border-radius: 10px;
       height: fit-content;
       position: relative;
-      max-width: 60%;
+      background-color: $red;
       .input-div {
         display: flex;
         flex-direction: column;
@@ -211,11 +212,15 @@ body {
       }
     }
     .ustensiles-keywords {
-      background-color: $red;
+      position: absolute;
+      top: 40px;
+      width: 645px;
+      z-index: 100;
       color: white;
       border: 0;
       padding: 18px;
       border-radius: 10px;
+      background-color: $red;
       ul {
         display: flex;
         flex-direction: row;
@@ -242,9 +247,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  column-gap: 95px;
+  row-gap: 40px;
   max-width: 1600px;
   margin: auto;
 }
@@ -266,7 +271,7 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   }
-  .appareilUL {
+  .appareilsUL {
     display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -291,7 +296,7 @@ body {
   .ustensiles-active {
     background-color: $red;
   }
-  .appareil-active {
+  .appareils-active {
     background-color: $green;
   }
 }
@@ -303,10 +308,10 @@ body {
 .ustensiles--selected {
   background-color: #bf4e42;
 }
-.appareil--selected {
+.appareils--selected {
   background-color: #4b9a75;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }

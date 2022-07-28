@@ -186,12 +186,11 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  background-color: #3282F7;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
   height: fit-content;
   position: relative;
-  max-width: 60%;
+  background-color: #3282F7;
 }
 #recherche .recherche-inputs .recherche-ingredients .input-div {
   display: flex;
@@ -219,7 +218,7 @@ body {
 #recherche .recherche-inputs .ingredients-keywords {
   background-color: #3282F7;
   position: absolute;
-  top: 65px;
+  top: 40px;
   width: 645px;
   z-index: 100;
   color: white;
@@ -245,25 +244,24 @@ body {
 #recherche .recherche-inputs .ingredients-keywords ul li:hover {
   background-color: #0366fa;
 }
-#recherche .recherche-inputs .recherche-appareil {
+#recherche .recherche-inputs .recherche-appareils {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  background-color: #68D9A4;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
   height: fit-content;
   position: relative;
-  max-width: 60%;
+  background-color: #68D9A4;
 }
-#recherche .recherche-inputs .recherche-appareil .input-div {
+#recherche .recherche-inputs .recherche-appareils .input-div {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
 }
-#recherche .recherche-inputs .recherche-appareil input {
+#recherche .recherche-inputs .recherche-appareils input {
   background-color: #68D9A4;
   border: 0;
   padding: 18px;
@@ -271,29 +269,33 @@ body {
   font-size: 18px;
   color: white;
 }
-#recherche .recherche-inputs .recherche-appareil input::placeholder {
+#recherche .recherche-inputs .recherche-appareils input::placeholder {
   color: white;
 }
-#recherche .recherche-inputs .recherche-appareil i {
+#recherche .recherche-inputs .recherche-appareils i {
   color: white;
   padding: 0px 10px;
   position: absolute;
   right: 0;
 }
-#recherche .recherche-inputs .appareil-keywords {
+#recherche .recherche-inputs .appareils-keywords {
   background-color: #68D9A4;
+  position: absolute;
+  top: 40px;
+  width: 645px;
+  z-index: 100;
   color: white;
   border: 0;
   padding: 18px;
   border-radius: 10px;
 }
-#recherche .recherche-inputs .appareil-keywords ul {
+#recherche .recherche-inputs .appareils-keywords ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: fit-content;
 }
-#recherche .recherche-inputs .appareil-keywords ul li {
+#recherche .recherche-inputs .appareils-keywords ul li {
   padding: 10px;
   margin: 2 px;
   border-radius: 5px;
@@ -302,7 +304,7 @@ body {
   min-width: 30%;
   transition: background-color 0.2s ease-in-out;
 }
-#recherche .recherche-inputs .appareil-keywords ul li:hover {
+#recherche .recherche-inputs .appareils-keywords ul li:hover {
   background-color: #4b9a75;
 }
 #recherche .recherche-inputs .recherche-ustensiles {
@@ -310,12 +312,11 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-  background-color: #ED6454;
   margin: 10px 30px 10px 0px;
   border-radius: 10px;
   height: fit-content;
   position: relative;
-  max-width: 60%;
+  background-color: #ED6454;
 }
 #recherche .recherche-inputs .recherche-ustensiles .input-div {
   display: flex;
@@ -341,11 +342,15 @@ body {
   right: 0;
 }
 #recherche .recherche-inputs .ustensiles-keywords {
-  background-color: #ED6454;
+  position: absolute;
+  top: 40px;
+  width: 645px;
+  z-index: 100;
   color: white;
   border: 0;
   padding: 18px;
   border-radius: 10px;
+  background-color: #ED6454;
 }
 #recherche .recherche-inputs .ustensiles-keywords ul {
   display: flex;
@@ -370,9 +375,9 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  column-gap: 95px;
+  row-gap: 40px;
   max-width: 1600px;
   margin: auto;
 }
@@ -395,7 +400,7 @@ body {
   flex-wrap: wrap;
   gap: 10px;
 }
-.tags-active .appareilUL {
+.tags-active .appareilsUL {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -420,7 +425,7 @@ body {
 .tags-active .ustensiles-active {
   background-color: #ED6454;
 }
-.tags-active .appareil-active {
+.tags-active .appareils-active {
   background-color: #68D9A4;
 }
 
@@ -432,12 +437,12 @@ body {
   background-color: #bf4e42;
 }
 
-.appareil--selected {
+.appareils--selected {
   background-color: #4b9a75;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */

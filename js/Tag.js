@@ -54,7 +54,7 @@ export default class Tag {
                     this.ustensilesActive();
                 }
             }
-            else if (this.genre === 'appareil') {
+            else if (this.genre === 'appareils') {
                 if(!appareilActiveTags.includes(this.name)) {
                     tag.classList.add(this.genre+'--selected');
                     appareilActiveTags.push(this.name);
@@ -139,12 +139,12 @@ export default class Tag {
     }
 
     appareilActive() {
-        const appareilUL = document.querySelector('.appareilUL');
+        const appareilUL = document.querySelector('.appareilsUL');
         
         appareilUL.innerHTML="";
         appareilActiveTags.forEach(activeTag => {
             const activedtag = document.createElement('li')
-            activedtag.classList.add("appareil-active")
+            activedtag.classList.add("appareils-active")
             activedtag.innerText = activeTag;
 
             const i = document.createElement('i');
@@ -159,12 +159,12 @@ export default class Tag {
                 this.filter.updateFilter(ingredientsActiveTags, ustensilesActiveTags, appareilActiveTags);
                 this.filter.filter();
 
-                const list = document.querySelector(".appareil-list");
+                const list = document.querySelector(".appareils-list");
                 const listEls = list.querySelectorAll("li");
         
                 listEls.forEach(listEl => {
-                    if (listEl.classList.contains('appareil--selected') && !appareilActiveTags.includes(listEl.innerHTML)) {
-                        listEl.classList.remove('appareil--selected');
+                    if (listEl.classList.contains('appareils--selected') && !appareilActiveTags.includes(listEl.innerHTML)) {
+                        listEl.classList.remove('appareils--selected');
                     }
                 });
             })

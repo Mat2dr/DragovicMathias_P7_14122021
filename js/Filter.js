@@ -37,27 +37,15 @@ export default class Filter {
     }
     updateTags(ingredientTags) {
         this.ingredientTags = ingredientTags;
-
-        console.log(this.ingredientTags)
     }
 
     filter() {
         //reset
         recetteFiltered = [];
-        console.log(this.ingredientsActiveTags);
 
         //check each recette
         API.recettes.forEach(recette => {
             if (!!value) {
-                /* if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
-                    if (this.searchFilter(recette)) {
-                        if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
-                            recetteFiltered.push(recette);
-                        }
-                    }
-                } else {
-                    recetteFiltered.push(recette);
-                } */
                 //Si il y a une valeur dans la recherche principal
                  if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
                     //Si il y a des tags active
@@ -75,11 +63,8 @@ export default class Filter {
                     recetteFiltered.push(recette);
                 }
             }
-            
-            
             recetteFiltered = [...new Set(recetteFiltered)];
         });
-
          if (recetteFiltered.length) {
             resultatsDiv.innerHTML = "";
 
@@ -97,11 +82,11 @@ export default class Filter {
             const SearchbarFilteredIngredients = new SearchbarFilter('ingredients', ingredientsRecetteFilter, this);
             SearchbarFilteredIngredients.SearchbarDisplay();
 
+            const SearchbarFilteredAppareils = new SearchbarFilter('appareils', appareilRecetteFilter, this);
+            SearchbarFilteredAppareils.SearchbarDisplay(); 
+
             const SearchbarFilteredUstensiles = new SearchbarFilter('ustensiles', ustensilesRecetteFilter, this);
             SearchbarFilteredUstensiles.SearchbarDisplay();
-
-            const SearchbarFilteredAppareils = new SearchbarFilter('appareil', appareilRecetteFilter, this);
-            SearchbarFilteredAppareils.SearchbarDisplay(); 
         } else {
             resultatsDiv.innerHTML = "";
             resultatsDiv.innerHTML='<p>Aucune recette ne correspond à votre critère… vous pouvez chercher "tarte aux pommes", "poisson", etc</p>';
@@ -111,7 +96,6 @@ export default class Filter {
     searchMain() {
         this.searchBar.addEventListener('input', e => {
             value = e.target.value.toLowerCase();
-            console.log(value);
 
             //Commence la main recherche
             if (value.length > 2) {
@@ -125,16 +109,6 @@ export default class Filter {
 
 
     // Utils
-    searchFilter(recette) {
-        if (value="") {
-            return true;
-        }
-        if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
-            return true;
-        }
-        return false;
-    }
-
     ingredientsFilter(recette) {
         let ingredientArray = [];
         //Loop dans les ingredients de toutes le recettes 
