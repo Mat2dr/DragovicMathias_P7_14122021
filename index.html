@@ -23,30 +23,22 @@
 
     <section id="recherche">
         <div class="recherche-input">
-            <input type="text" class="searchBar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+            <input type="search" class="searchBar" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" data-search-main>
             <i class="fa fa-search"></i>
         </div>
 
-        <div class="recherche-inputs">
-            <div class="recherche-ingredients">
-                <input type="text" class="searchBarIngredients" placeholder="Ingredients">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="recherche-Appareil">
-                <input type="text" class="searchBarAppareil" placeholder="Appareil">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="recherche-Ustensiles">
-                <input type="text" class="searchBarUstensiles" placeholder="Ustensiles">
-                <i class="fas fa-chevron-down"></i>
-            </div>
+        <div class="tags-active">
+            <ul class="ingredientsUL"></ul>
+            <ul class="ustensilesUL"></ul>
+            <ul class="appareilsUL"></ul>
         </div>
+
+        <div class="recherche-inputs"></div>
     </section>
 
     <section id="resultats"></section>
 
-    <script src="./js/factory/recipesFactory.js"></script>
-
-    <script src="./js/recipes.js"></script>
+    <!-- Run the APP -->
+    <script type="module" src="./js/Engine.js"></script>
 </body>
 </html>
