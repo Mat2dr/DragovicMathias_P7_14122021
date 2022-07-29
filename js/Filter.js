@@ -44,27 +44,27 @@ export default class Filter {
         recetteFiltered = [];
 
         //check each recette
-        API.recettes.forEach(recette => {
+        for (let i = 0; i < API.recettes.length; i++) {
             if (!!value) {
                 //Si il y a une valeur dans la recherche principal
-                 if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
+                 if (API.recettes[i].name.toLowerCase().includes(value) || API.recettes[i].description.toLowerCase().includes(value)) {
                     //Si il y a des tags active
                     if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
-                        if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
-                            recetteFiltered.push(recette);
+                        if (this.ingredientsFilter(API.recettes[i]) && this.ustensilesFilter(API.recettes[i]) && this.appareilFilter(API.recettes[i])) {
+                            recetteFiltered.push(API.recettes[i]);
                         }
                     } else {
-                        recetteFiltered.push(recette);
+                        recetteFiltered.push(API.recettes[i]);
                     }
                 } 
             } else {
                 //Si il n'y a pas de valeur dans la recherche principal
-                if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
-                    recetteFiltered.push(recette);
+                if (this.ingredientsFilter(API.recettes[i]) && this.ustensilesFilter(API.recettes[i]) && this.appareilFilter(API.recettes[i])) {
+                    recetteFiltered.push(API.recettes[i]);
                 }
             }
             recetteFiltered = [...new Set(recetteFiltered)];
-        });
+        }
          if (recetteFiltered.length) {
             resultatsDiv.innerHTML = "";
 
