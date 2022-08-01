@@ -24,6 +24,8 @@ export default class Tag {
         this.filter = filter;
     }
 
+    /*--------- AFFICHER LA LISTE DE TAGS ---------*/
+
     tagDisplay() {
         const tag = document.createElement('li');
         tag.classList.add(this.genre+"-li");

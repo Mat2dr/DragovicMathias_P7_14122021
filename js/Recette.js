@@ -20,6 +20,8 @@ export default class Recette {
       this.ustensils = ustensils;
     }
 
+    /*--------- AFFICHER RECETTE ---------*/
+
     recipeDisplay() {
       const recipesSection = document.querySelector("#resultats");
         //Setup element
@@ -71,7 +73,6 @@ export default class Recette {
          quant.innerHTML = ingredientEl.quantity;
         }
         
-
         listeLI.appendChild(span);
         listeLI.appendChild(quant);
         listeUL.appendChild(listeLI);

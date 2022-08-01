@@ -16,6 +16,8 @@ export default class SearchbarFilter {
         this.filter = filter;
     }
 
+    /*--------- AFFICHER LA SEARCHBAR ---------*/
+
     SearchbarDisplay() {
         //Define for the close and open tag modal
         const divRecherche = ".recherche-"+this.name;
@@ -92,7 +94,6 @@ export default class SearchbarFilter {
                     newTagsList.push(tag);
                 } 
             });
-            //newTagsList = [...new Set(newTagsList)];
 
             //affiche la nouvelle list
             if (newTagsList.length) {

@@ -5,6 +5,8 @@ export default class API {
     static ustensiles = [];
     static appareils = [];
 
+    /*--------- CONNECT TO API ---------*/
+
     // Fait une connection a la base de donnée 
     static fetchData = async () => {
         await fetch('./API/recipes.json')
@@ -17,16 +19,16 @@ export default class API {
         })
     }
 
+    /*--------- RECUPERER LES INFOS D'API ---------*/
+    //Recuperer recettes
     static getRecettes = () => {
         return API.recettes;
     }
-
+    //Recuperer ingredients
     static getIngredients = () => {
         let ingredientsArrayBase = [];
 
-
         API.recettes.forEach(recette => {
-            //Recuperer les ingredients des recettes 
             recette.ingredients.forEach(leIngredient => {
                 ingredientsArrayBase.push(leIngredient.ingredient.toLowerCase())
             });
@@ -35,13 +37,12 @@ export default class API {
         })
         return API.ingredients;
     }
-
+    //Recuperer Ustensiles
     static getUstensiles = () => {
         let ustensilesArrayBase = [];
 
-
         API.recettes.forEach(recette => {
-            //Recuperer les ustensiles des recettes 
+
             recette.ustensils.forEach(lUstensile => {
                 ustensilesArrayBase.push(lUstensile.toLowerCase())
             });
@@ -50,13 +51,11 @@ export default class API {
         })
         return API.ustensiles;
     }
-
+    //Recuperer Appareils
     static getAppareils = () => {
         let appareilsArrayBase = [];
 
-
         API.recettes.forEach(recette => {
-            //Recuperer les appareils des recettes 
             appareilsArrayBase.push(recette.appliance.toLowerCase())
             //Remove duplicate 
             API.appareils = [...new Set(appareilsArrayBase)];
