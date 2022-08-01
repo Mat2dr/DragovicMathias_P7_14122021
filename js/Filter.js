@@ -30,6 +30,8 @@ export default class Filter {
         this.searchMain();
     }
 
+    /*--------- UPDATER ---------*/
+
     updateFilter(newIngredientsActiveTags, newUstensilesActiveTags, newAppareilActiveTags) {
         this.ingredientsActiveTags = newIngredientsActiveTags;
         this.ustensilesActiveTags = newUstensilesActiveTags;
@@ -38,6 +40,8 @@ export default class Filter {
     updateTags(ingredientTags) {
         this.ingredientTags = ingredientTags;
     }
+
+    /*--------- ALGO POUR FILTRER ---------*/
 
     filter() {
         //reset
@@ -93,6 +97,8 @@ export default class Filter {
         } 
     }
 
+    /*--------- SEARCHBAR ---------*/
+
     searchMain() {
         this.searchBar.addEventListener('input', e => {
             value = e.target.value.toLowerCase();
@@ -107,8 +113,9 @@ export default class Filter {
         })
     }
 
-
-    // Utils
+    /*--------- UTILS ---------*/
+    
+    //Fonction pour filtrer si la recette includes Ingredients active
     ingredientsFilter(recette) {
         let ingredientArray = [];
         //Loop dans les ingredients de toutes le recettes 
@@ -122,6 +129,7 @@ export default class Filter {
 
           return containsAll;
     }
+    //Fonction pour filtrer si la recette includes Ustensiles active
     ustensilesFilter(recette) {
         let ustensilesArray = [];
         //Loop dans les ustensiles de toutes le recettes 
@@ -135,6 +143,7 @@ export default class Filter {
 
           return containsAll; 
     }
+    //Fonction pour filtrer si la recette includes Appareil active
     appareilFilter(recette) {
             let appareilArray = [];
             //Loop dans les ingredients de toutes le recettes 
@@ -147,11 +156,11 @@ export default class Filter {
             return containsAll; 
     }
 
+    //Fonction pour recuperer la liste des ingredients des recettes filtered
     getIngredients = () => {
         ingredientsRecetteFilter = [];
 
         recetteFiltered.forEach(recette => {
-            //Recuperer les ingredients des recettes 
             recette.ingredients.forEach(leIngredient => {
                 ingredientsRecetteFilter.push(leIngredient.ingredient.toLowerCase())
             });
@@ -159,13 +168,12 @@ export default class Filter {
             ingredientsRecetteFilter = [...new Set(ingredientsRecetteFilter)];
         })
     }
-
+    //Fonction pour recuperer la liste des ustensiles des recettes filtered
     getUstensiles = () => {
         ustensilesRecetteFilter = [];
 
 
         recetteFiltered.forEach(recette => {
-            //Recuperer les ustensiles des recettes 
             recette.ustensils.forEach(lUstensile => {
                 ustensilesRecetteFilter.push(lUstensile.toLowerCase())
             });
@@ -173,13 +181,12 @@ export default class Filter {
             ustensilesRecetteFilter = [...new Set(ustensilesRecetteFilter)];
         })
     }
-
+    //Fonction pour recuperer la liste des Appareils des recettes filtered
     getAppareils = () => {
         appareilRecetteFilter = [];
 
 
         recetteFiltered.forEach(recette => {
-            //Recuperer les appareils des recettes 
             appareilRecetteFilter.push(recette.appliance.toLowerCase())
             //Remove duplicate 
             appareilRecetteFilter = [...new Set(appareilRecetteFilter)];
