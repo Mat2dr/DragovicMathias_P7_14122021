@@ -161,7 +161,7 @@ export default class Filter {
         }
 
         for (var i = 0; i < ingredientsAll.length; i++) {
-            if (ingredientsAll[i].includes(value)) {
+            if (ingredientsAll[i].normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value)) {
                 result = true;
                 break
             } else {
