@@ -48,7 +48,7 @@ export default class Filter {
         for (let i = 0; i < API.recettes.length; i++) {
             if (!!value) {
                 //Si il y a une valeur dans la recherche principal
-                 if (API.recettes[i].name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value) || API.recettes[i].description.toLowerCase().includes(value)) {
+                 if (API.recettes[i].name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value) || API.recettes[i].description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value) || this.searchWithIngredients(API.recettes[i], value)) {
                     //Si il y a des tags active
                     if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
                         if (this.ingredientsFilter(API.recettes[i]) && this.ustensilesFilter(API.recettes[i]) && this.appareilFilter(API.recettes[i])) {
@@ -149,6 +149,26 @@ export default class Filter {
             });
 
             return containsAll; 
+    }
+
+    searchWithIngredients(recette, searchValue) {
+        let result;
+        let ingredientsAll = [];
+        let value = searchValue.toLowerCase();
+
+        for (var i = 0; i < recette.ingredients.length; i++) {
+            ingredientsAll.push(recette.ingredients[i].ingredient.toLowerCase())
+        }
+
+        for (var i = 0; i < ingredientsAll.length; i++) {
+            if (ingredientsAll[i].includes(value)) {
+                result = true;
+                break
+            } else {
+                result = false;
+            }
+        }
+        return result;
     }
 
     //Fonction pour recuperer la liste des ingredients dans recette Filtered
