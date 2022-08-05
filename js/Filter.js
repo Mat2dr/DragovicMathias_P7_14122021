@@ -51,7 +51,7 @@ export default class Filter {
         API.recettes.forEach(recette => {
             if (!!value) {
                 //Si il y a une valeur dans la recherche principal
-                 if (recette.name.toLowerCase().includes(value) || recette.description.toLowerCase().includes(value)) {
+                 if (recette.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value) || recette.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(value)) {
                     //Si il y a des tags active
                     if (this.ingredientsActiveTags || this.ustensilesActiveTags || this.appareilActiveTags) {
                         if (this.ingredientsFilter(recette) && this.ustensilesFilter(recette) && this.appareilFilter(recette)) {
