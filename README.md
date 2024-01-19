@@ -1,6 +1,6 @@
 # Recipe Project
 
-Welcome to the Recipe Project! This project aims to implement two search algorithms and compare their performance to determine which one is faster. The implementation is in HTML and JavaScript for ease of use without the need to install npm. You can simply clone the project and run it using the Visual Studio Code server, for example.
+This project aims to implement two search algorithms and compare their performance to determine which one is faster. The implementation is in HTML and JavaScript.
 
 ## Installation Instructions
 
